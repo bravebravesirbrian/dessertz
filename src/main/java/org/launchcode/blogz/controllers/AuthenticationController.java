@@ -21,7 +21,25 @@ public class AuthenticationController extends AbstractController {
 	public String signup(HttpServletRequest request, Model model) {
 		
 		// TODO - implement signup
-		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String verify = request.getParameter("verify");
+		if (User.isValidUsername(username) == false){
+			model.addAttribute("username_error", "This username is not valid.");
+			return "signup";
+		}
+		if (User.isValidPassword(password) == false){
+			model.addAttribute("password_error", "This password is not valid.");
+			return "signup";
+		}
+		if (password.equals(verify) == false){
+			model.addAttribute("verify_error", "The passwords do not match.");
+			return "signup";
+		}
+		User newUser= new User(username, password);
+		userDao.save(newUser);
+		HttpSession session = request.getSession();
+		this.setUserInSession(session, newUser);
 		return "redirect:blog/newpost";
 	}
 	
@@ -34,7 +52,19 @@ public class AuthenticationController extends AbstractController {
 	public String login(HttpServletRequest request, Model model) {
 		
 		// TODO - implement login
-		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		User user = userDao.findByUsername(username);
+		if (user == null){
+			model.addAttribute("error", "Username not found.");
+			return "login";
+		}
+		if (user.isMatchingPassword(password) == false){
+			model.addAttribute("error", "Incorrect password.");
+			return "login";
+		}
+		HttpSession session = request.getSession();
+		this.setUserInSession(session, user);
 		return "redirect:blog/newpost";
 	}
 	
