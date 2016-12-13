@@ -1,4 +1,4 @@
-package org.launchcode.blogz.models;
+package org.launchcode.dessertz.models;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.launchcode.dessertz.models.Recipe;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -21,7 +22,7 @@ public class User extends AbstractEntity {
 	private String pwHash;
 	private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
-	private List<Post> posts;
+	private List<Recipe> recipes;
 	
 	public User() {}
 	
@@ -80,18 +81,18 @@ public class User extends AbstractEntity {
 		return matcher.matches();
 	}
 	
-	protected void addPost(Post post) {
-		posts.add(post);
+	protected void addRecipe(Recipe recipe) {
+		recipes.add(recipe);
 	}
 	
 	@OneToMany
     @JoinColumn(name = "author_uid")
-    public List<Post> getPosts() {
-        return posts;
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 	
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 	
 }

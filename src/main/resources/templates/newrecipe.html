@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+	<div th:replace="template :: navigation"></div>
+
+	<form method="post">
+	    <label>
+	        <div>Title</div>
+	        <input type="text" name="title" th:value="${value}"></input>
+	    </label>
+	    <label>
+	    	<div>Select a category: </div>
+	    	<input type="radio" name="category" value="cake"> Cake and cake-like </input>
+    		<input type="radio" name="category" value="chocolate"> Chocolate </input>
+    		<input type="radio" name="category" value="cookie"> Cookies/Brownies </input>
+    		<input type="radio" name="category" value="custard"> Custards </input>
+    		<br></br>
+    		<input type="radio" name="category" value="fruit"> Fruit </input>
+    		<input type="radio" name="category" value="iceCream"> Ice Cream </input>
+    		<input type="radio" name="category" value="muffin"> Muffins </input>
+    		<input type="radio" name="category" value="pie"> Pies and Tarts </input>
+    		<input type="radio" name="category" value="other"> Other </input>
+	    </label>
+		<label>
+			<div>Prep Time</div>
+	    	<input type="text" name="prep" th:value="${value}"></input>
+	    </label>
+	    <label>
+			<div>Total Time</div>
+	    	<input type="text" name="total" th:value="${value}"></input>
+	    </label>
+	    <label>
+			<div>Number of Servings</div>
+	    	<input type="text" name="serve" th:value="${value}"></input>
+	    </label>
+	    <label>
+	    	<div>Ingredients</div>
+	    	<textarea name="ingr" th:text="${ingr}"></textarea>
+	    </label>
+	    <label>
+	        <div>Instructions</div>
+	        <textarea name="inst" th:text="${inst}"></textarea>
+	    </label>
+	    <div class="error" th:text="${error}"></div>
+	    <button type="submit">Create</button>
+	</form>
+
+</body>
+</html>

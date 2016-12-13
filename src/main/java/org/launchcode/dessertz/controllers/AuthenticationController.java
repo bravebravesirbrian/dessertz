@@ -1,9 +1,9 @@
-package org.launchcode.blogz.controllers;
+package org.launchcode.dessertz.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.launchcode.blogz.models.User;
+import org.launchcode.dessertz.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,6 @@ public class AuthenticationController extends AbstractController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(HttpServletRequest request, Model model) {
 		
-		// TODO - implement signup
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String verify = request.getParameter("verify");
@@ -40,7 +39,7 @@ public class AuthenticationController extends AbstractController {
 		userDao.save(newUser);
 		HttpSession session = request.getSession();
 		this.setUserInSession(session, newUser);
-		return "redirect:blog/newpost";
+		return "redirect:allrecipes/newrecipe";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -65,7 +64,7 @@ public class AuthenticationController extends AbstractController {
 		}
 		HttpSession session = request.getSession();
 		this.setUserInSession(session, user);
-		return "redirect:blog/newpost";
+		return "redirect:allrecipes/newrecipe";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

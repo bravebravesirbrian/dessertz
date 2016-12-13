@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+	<div th:replace="template :: navigation"></div>
+	
+	<h2 id="title"></h2>
+	<p class="recipe-author">Written by <a th:href="'/allrecipes/' + ${recipe.author.username}" th:text="${recipe.author.username} + ' on ' + ${#dates.format(recipe.created, 'yyyy-MM-dd')}"></a></p>
+	<br></br>
+	<p style="white-space: pre-line" th:text="'Prep Time: ' + ${recipe.prep}"></p>
+	<p style="white-space: pre-line" th:text="'Total Time: ' + ${recipe.total}"></p>
+	<p style="white-space: pre-line" th:text="'Number of servings: ' + ${recipe.serve}"></p>
+	<br></br>
+	<h3>Ingredients:</h3>
+	<p style="white-space: pre-line" th:text="${recipe.ingr}"></p>
+	<br></br>
+	<h3>Instructions:</h3>
+	<p style="white-space: pre-line" th:text="${recipe.inst}"></p>
+	<br></br>
+	<p id="rating" style="white-space: pre-line"></p>
+	<br></br>
+	<form method="post">
+		<input type="radio" name="rating" value="1">Rate 1 </input>
+    	<input type="radio" name="rating" value="2">Rate 2 </input>
+    	<input type="radio" name="rating" value="3">Rate 3 </input>
+    	<input type="radio" name="rating" value="4">Rate 4 </input>
+    	<input type="radio" name="rating" value="5">Rate 5 </input>
+    	<br></br>
+		<button type="submit">Rate This Recipe</button>
+	</form>
+	<br></br>
+	<script th:inline="javascript">
+		/*[+
+		var a = [[${recipe.title}]];
+		var b = (a == "") ? "No Title" : a;
+		document.getElementById('title').innerHTML = b;
+		
+		var x1 = (/*[[${recipe.rating}]]/[[${recipe.rate}]]*/);
+		var x2 = x1.toFixed(1);
+		var y = (x1 !== x1) ? "This recipe has not yet been rated." : "This recipe's rating: " + x2 + " out of 5.";
+		document.getElementById('rating').innerHTML = y;
+     	+]*/	
+	</script>
+	
+</body>
+</html>

@@ -1,10 +1,10 @@
-package org.launchcode.blogz.models.dao;
+package org.launchcode.dessertz.models.dao;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.launchcode.blogz.models.User;
+import org.launchcode.dessertz.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

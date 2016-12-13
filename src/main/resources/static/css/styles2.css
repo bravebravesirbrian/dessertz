@@ -1,8 +1,10 @@
 body {
-    font-family: sans-serif;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: blue;
     width: 800px;
     margin: 0 auto;
     padding: 10px;
+    background-image: url("http://eskipaper.com/images/dessert-background-1.jpg");
 }
 
 .error {
@@ -51,7 +53,7 @@ hr {
     font-size: 17px;
 }
 
-.post-author {
+.recipe-author {
     font-style: italic;
     font-size: 12px;
 }
@@ -70,3 +72,4 @@ nav ul li {
 nav #user-account {
     float: right;
 }
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<div th:replace="template :: navigation"></div>
+
+<h1>Recipes!</h1>
+
+<div th:each="recipe : ${recipes}">
+
+	<h2><a th:href="'/allrecipes/' + ${recipe.author.username} + '/' + ${recipe.uid}" th:text = "${recipe.title}"></a></h2>
+	<p class="recipe-author">Written by <a th:href="'/allrecipes/' + ${recipe.author.username}" th:text="${recipe.author.username} + ' on ' + ${#dates.format(recipe.created, 'yyyy-MM-dd')}"></a></p>
+
+</div>
+
+
+</body>
+</html>

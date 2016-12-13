@@ -1,10 +1,10 @@
-package org.launchcode.blogz.controllers;
+package org.launchcode.dessertz.controllers;
 
 import javax.servlet.http.HttpSession;
 
-import org.launchcode.blogz.models.User;
-import org.launchcode.blogz.models.dao.PostDao;
-import org.launchcode.blogz.models.dao.UserDao;
+import org.launchcode.dessertz.models.User;
+import org.launchcode.dessertz.models.dao.RecipeDao;
+import org.launchcode.dessertz.models.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractController {
@@ -13,7 +13,7 @@ public abstract class AbstractController {
     protected UserDao userDao;
 	
 	@Autowired
-	protected PostDao postDao;
+	protected RecipeDao recipeDao;
 
     public static final String userSessionKey = "user_id";
 
