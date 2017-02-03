@@ -26,7 +26,5 @@ Recipe findByTitle(String title);
 	List<Recipe> findAll();
     
     List<Recipe> findByAuthor(int authorId);
-    
-    // TODO - add method signatures as needed
 	
 }

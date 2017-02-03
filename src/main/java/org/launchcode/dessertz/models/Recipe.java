@@ -16,6 +16,7 @@ public class Recipe extends AbstractEntity {
 	private String title;
 	private String inst;
 	private String ingr;
+	private String image;
 	private User author;
 	private String prep;
 	private String total;
@@ -28,13 +29,14 @@ public class Recipe extends AbstractEntity {
 	
 	public Recipe() {}
 	
-	public Recipe(String title, String inst, String ingr, User author, String prep, String total, String serve, double rate, double rating, String category) {
+	public Recipe(String title, String inst, String ingr, String image, User author, String prep, String total, String serve, double rate, double rating, String category) {
 		
 		super();
 		
 		this.title = title;
 		this.inst = inst;
 		this.ingr = ingr;
+		this.setImage(image);
 		this.author = author;
 		this.prep = prep;
 		this.total = total;
@@ -183,6 +185,16 @@ public class Recipe extends AbstractEntity {
 	
 	private void updated() {
 		this.modified = new Date();
+	}
+
+    @Column(name = "image")
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+		this.updated();
 	}
 	
 }

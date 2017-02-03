@@ -6,10 +6,12 @@
 
 	<div th:replace="template :: navigation"></div>
 
-	<h1>Welcome to Dessertz!</h1>
+	<h1>Users!</h1>
 
 	<ul>
-		<li>Here you can</li>
+		<div th:each="user : ${users}">
+		<li><a th:href="'/allrecipes/'+${user.username}" th:text = "${user.username}"></a></li>
+		</div>
 	</ul>
 
 </body>
