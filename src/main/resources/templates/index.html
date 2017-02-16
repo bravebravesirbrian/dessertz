@@ -6,14 +6,25 @@
 
 	<div th:replace="template :: navigation"></div>
 
-	<h1>Users!</h1>
-
-	<!--  TODO - list all users, with links to their blog pages -->
+	<h1>Welcome to Dessertz!</h1>
+	
 	<ul>
-		<div th:each="user : ${users}">
-		<li><a th:href="'/allrecipes/'+${user.username}" th:text = "${user.username}"></a></li>
-		</div>
+		<li>This is a website where you can create and post your own dessert recipes!</li>
+		<br></br>
+		<li>Then other people can rate and comment on them!</li>
+		<br></br>
+		<li>And you can add enticing pictures like these!</li>
+		<br></br>
+		<li>So what are you waiting for?  Hit login, create an account, and get posting!</li>
+		<br></br>
+		<li>Or, hit one of the other buttons above to search for other people's recipes, or learn more things about baking!</li>
+		<br></br>
 	</ul>
+	<img src="http://www.coldstonecreamery.com/assets/img/products/signaturecakes/signature-cakes-cakebatterconfetti.jpg" style="width:50%"></img><img src="http://images.media-allrecipes.com/userphotos/560x315/1107530.jpg" style="width:50%"></img>
+	<img src="https://heidelblog.net/wp-content/uploads/2017/01/pie.jpg" style="width:50%"></img><img src="http://morellisicecream.com/wp-content/uploads/2014/05/MIC-3scoops-banner.png" style="width:50%"></img>
+
+	
+
 
 </body>
 </html>
